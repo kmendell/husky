@@ -1,12 +1,10 @@
-BINARY_NAME=testing/husky
- 
 build:
-    go build -o ${BINARY_NAME}
- 
+	go build -o bin/husky
+
 run:
-    go build -o ${BINARY_NAME}
-    ${BINARY_NAME} testing/test.husky
- 
+	go build -o bin/husky
+	bin/husky test.husky
+
 clean:
-    go clean
-    rm ${BINARY_NAME}
+	go clean
+	rm bin/husky

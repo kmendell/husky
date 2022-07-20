@@ -6,6 +6,8 @@ import (
 	"os"
 )
 
+import "ofkm.us/husky/types"
+
 func huskyOpen() {
 	filePath := os.Args[1]
 	readFile, err := os.Open(filePath)
@@ -24,8 +26,8 @@ func huskyOpen() {
 	readFile.Close()
 
 	for index, line := range fileLines {
-		huskyProjectCheck(line, index, filePath)
-		huskyProjectStringVaribles(line, index, filePath)
+		types.HuskyProjectCheck(line, index, filePath)
+		types.HuskyProjectStringVaribles(line, index, filePath)
 	}
 
 }

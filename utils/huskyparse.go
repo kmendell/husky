@@ -14,8 +14,8 @@ type HuskyParseObject struct {
 func HuskyParseStart(object HuskyParseObject) {
 	if strings.Contains(object.Type, "HuskyString") {
 		huskyParseStringVaribles(object.Line, object.Index)
-	} else {
-		println("Not a String")
+	} else if strings.Contains(object.Type, "HuskyProject") {
+		huskyParseProject(object.Line, object.Index, object.InputFilePath)
 	}
 }
 
@@ -32,6 +32,14 @@ func huksyParseIntVaribles() {
 
 }
 
-func huskyParseProject() {
+func huskyParseProject(line string, index int, filePath string) {
+	if strings.Contains(line, "project") {
+		projName := strings.Split(line, " ")
+		if !strings.Contains(projName[1], "main") {
+			println("Error in", filePath, "on line", index+1, "\n   Expected Project 'main' found", projName[1])
+		} else {
+			types.CompiledHuskyProject = types.NewHuskyProject(projName[1], []types.HuskyString{})
+		}
 
+	}
 }

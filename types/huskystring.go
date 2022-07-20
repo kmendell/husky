@@ -1,20 +1,20 @@
-package main
+package types
 
 import "strings"
 
 type HuskyString struct {
-	name  string
-	value string
+	Name  string
+	Value string
 }
 
 func (hs HuskyString) toCaps() string {
-	return strings.ToUpper(hs.value)
+	return strings.ToUpper(hs.Value)
 }
 
 func (hs HuskyString) toLower() string {
-	return strings.ToLower(hs.value)
+	return strings.ToLower(hs.Value)
 }
 
 func (hs HuskyString) DoesContain(str string) bool {
-	return strings.Contains(hs.value, str)
+	return strings.Contains(hs.Value, str)
 }

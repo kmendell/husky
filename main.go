@@ -33,7 +33,7 @@ func huskyOpen() {
 func main() {
 	huskyOpen()
 	// for _, rvar := range compiledHuskyProject.varibles {
-	// 	println(rvar.name, ":", rvar.value)
+	// 	println(rvar.Name, ":", rvar.Value)
 	// 	println(rvar.DoesContain("2"))
 	// }
 }

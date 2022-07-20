@@ -27,13 +27,15 @@ func huskyOpen() {
 	readFile.Close()
 
 	for index, line := range fileLines {
+		stringObject := utils.HuskyParseObject{Type: "HuskyString", InputFilePath: filePath, Index: index, Line: line}
+		// projectObject := utils.HuskyParseObject{Type: "project", InputFilePath: filePath, Index: index, Line: line}
+		utils.HuskyParseStart(stringObject)
 		types.HuskyProjectCheck(line, index, filePath)
-		types.HuskyProjectStringVaribles(line, index, filePath)
+		// types.HuskyProjectStringVaribles(line, index, filePath)
 	}
 
 }
 
 func main() {
 	huskyOpen()
-	utils.DevforLoop()
 }

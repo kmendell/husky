@@ -3,18 +3,18 @@ package types
 import "strings"
 
 type HuskyProject struct {
-	name     string
-	varibles []HuskyString
+	Name     string
+	Varibles []HuskyString
 }
 
 func newHuskyProject(dname string, dvar []HuskyString) HuskyProject {
 
-	project := HuskyProject{name: dname, varibles: dvar}
+	project := HuskyProject{Name: dname, Varibles: dvar}
 
 	return project
 }
 
-var compiledHuskyProject HuskyProject
+var CompiledHuskyProject HuskyProject
 
 func HuskyProjectCheck(line string, index int, filePath string) {
 	if strings.Contains(line, "project") {
@@ -22,7 +22,7 @@ func HuskyProjectCheck(line string, index int, filePath string) {
 		if !strings.Contains(projName[1], "main") {
 			println("Error in", filePath, "on line", index+1, "\n   Expected Project 'main' found", projName[1])
 		} else {
-			compiledHuskyProject = newHuskyProject(projName[1], []HuskyString{})
+			CompiledHuskyProject = newHuskyProject(projName[1], []HuskyString{})
 		}
 
 	}
@@ -34,6 +34,6 @@ func HuskyProjectStringVaribles(line string, index int, filePath string) {
 		sname1 := strings.Split(line, "=")
 		sname2 := strings.Split(sname1[0], " ")
 		val1 := strings.Split(sname1[1], "\"")
-		compiledHuskyProject.varibles = append(compiledHuskyProject.varibles, HuskyString{Name: sname2[1], Value: val1[1]})
+		CompiledHuskyProject.Varibles = append(CompiledHuskyProject.Varibles, HuskyString{Name: sname2[1], Value: val1[1]})
 	}
 }

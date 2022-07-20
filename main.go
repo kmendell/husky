@@ -7,6 +7,7 @@ import (
 )
 
 import "ofkm.us/husky/types"
+import "ofkm.us/husky/utils"
 
 func huskyOpen() {
 	filePath := os.Args[1]
@@ -34,8 +35,5 @@ func huskyOpen() {
 
 func main() {
 	huskyOpen()
-	// for _, rvar := range compiledHuskyProject.varibles {
-	// 	println(rvar.Name, ":", rvar.Value)
-	// 	println(rvar.DoesContain("2"))
-	// }
+	utils.DevforLoop()
 }

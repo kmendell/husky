@@ -4,6 +4,7 @@ import (
 	"strconv"
 	"strings"
 
+	"ofkm.us/husky/functions"
 	"ofkm.us/husky/types"
 )
 
@@ -68,6 +69,6 @@ func huskyParseProject(line string, index int, filePath string) {
 
 func huskyParseFuncPrint(line string, index int) {
 	if strings.Contains(line, "print") {
-		println("Found print function")
+		functions.HuskyPrintRun("test", "test") // Todo := Logic to get what is inside of the print () func, and to search for it in varible
 	}
 }

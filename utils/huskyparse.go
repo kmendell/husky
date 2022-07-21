@@ -23,6 +23,8 @@ func HuskyParseStart(object HuskyParseObject) {
 		huskyParseProject(object.Line, object.Index, object.InputFilePath)
 	case types.GetType().HuskyInt:
 		huskyParseIntVaribles(object.Line, object.Index)
+	case types.GetType().HuskyFuncPrint:
+		huskyParseFuncPrint(object.Line, object.Index)
 	default:
 		break
 	}
@@ -30,7 +32,7 @@ func HuskyParseStart(object HuskyParseObject) {
 }
 
 func huskyParseStringVaribles(line string, index int) {
-	if strings.Contains(line, "string") {
+	if strings.Contains(line, "string.new()") {
 		sname1 := strings.Split(line, "=")
 		sname2 := strings.Split(sname1[0], " ")
 		val1 := strings.Split(sname1[1], "\"")
@@ -39,7 +41,7 @@ func huskyParseStringVaribles(line string, index int) {
 }
 
 func huskyParseIntVaribles(line string, index int) {
-	if strings.Contains(line, "int") {
+	if strings.Contains(line, "int.new()") {
 		sname1 := strings.Split(line, "=")
 		sname2 := strings.Split(sname1[0], " ")
 		val1 := strings.Split(sname1[1], " ")
@@ -56,9 +58,16 @@ func huskyParseProject(line string, index int, filePath string) {
 		projName := strings.Split(line, " ")
 		if !strings.Contains(projName[1], "main") {
 			println("Error in", filePath, "on line", index+1, "\n   Expected Project 'main' found", projName[1])
+			// TODO := Create and Throw a new HuskyError
 		} else {
 			types.CompiledHuskyProject = types.NewHuskyProject(projName[1], []types.HuskyString{}, []types.HuskyInt{})
 		}
 
+	}
+}
+
+func huskyParseFuncPrint(line string, index int) {
+	if strings.Contains(line, "print") {
+		println("Found print function")
 	}
 }

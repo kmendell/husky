@@ -29,9 +29,11 @@ func huskyOpen() {
 		stringObject := utils.HuskyParseObject{Type: "HuskyString", InputFilePath: filePath, Index: index, Line: line}
 		projectObject := utils.HuskyParseObject{Type: "HuskyProject", InputFilePath: filePath, Index: index, Line: line}
 		intObject := utils.HuskyParseObject{Type: "HuskyInt", InputFilePath: filePath, Index: index, Line: line}
+		funcPrintObject := utils.HuskyParseObject{Type: "HuskyFuncPrint", InputFilePath: filePath, Index: index, Line: line}
 		utils.HuskyParseStart(stringObject)
 		utils.HuskyParseStart(projectObject)
 		utils.HuskyParseStart(intObject)
+		utils.HuskyParseStart(funcPrintObject)
 	}
 
 }

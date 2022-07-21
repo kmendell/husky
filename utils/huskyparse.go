@@ -1,8 +1,11 @@
 package utils
 
-import "strings"
+import (
+	"strconv"
+	"strings"
 
-import "ofkm.us/husky/types"
+	"ofkm.us/husky/types"
+)
 
 type HuskyParseObject struct {
 	Type          string
@@ -16,6 +19,8 @@ func HuskyParseStart(object HuskyParseObject) {
 		huskyParseStringVaribles(object.Line, object.Index)
 	} else if strings.Contains(object.Type, "HuskyProject") {
 		huskyParseProject(object.Line, object.Index, object.InputFilePath)
+	} else if strings.Contains(object.Type, "HuskyInt") {
+		huskyParseIntVaribles(object.Line, object.Index)
 	}
 }
 
@@ -28,8 +33,17 @@ func huskyParseStringVaribles(line string, index int) {
 	}
 }
 
-func huksyParseIntVaribles() {
-
+func huskyParseIntVaribles(line string, index int) {
+	if strings.Contains(line, "int") {
+		sname1 := strings.Split(line, "=")
+		sname2 := strings.Split(sname1[0], " ")
+		val1 := strings.Split(sname1[1], " ")
+		dint, err := strconv.Atoi(val1[1])
+		if err != nil {
+			panic(err)
+		}
+		types.CompiledHuskyProject.HuskyInts = append(types.CompiledHuskyProject.HuskyInts, types.HuskyInt{Name: sname2[1], Value: dint})
+	}
 }
 
 func huskyParseProject(line string, index int, filePath string) {
@@ -38,7 +52,7 @@ func huskyParseProject(line string, index int, filePath string) {
 		if !strings.Contains(projName[1], "main") {
 			println("Error in", filePath, "on line", index+1, "\n   Expected Project 'main' found", projName[1])
 		} else {
-			types.CompiledHuskyProject = types.NewHuskyProject(projName[1], []types.HuskyString{})
+			types.CompiledHuskyProject = types.NewHuskyProject(projName[1], []types.HuskyString{}, []types.HuskyInt{})
 		}
 
 	}

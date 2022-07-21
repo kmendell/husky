@@ -4,9 +4,9 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-)
 
-import "ofkm.us/husky/utils"
+	"ofkm.us/husky/utils"
+)
 
 func huskyOpen() {
 	filePath := os.Args[1]
@@ -28,12 +28,15 @@ func huskyOpen() {
 	for index, line := range fileLines {
 		stringObject := utils.HuskyParseObject{Type: "HuskyString", InputFilePath: filePath, Index: index, Line: line}
 		projectObject := utils.HuskyParseObject{Type: "HuskyProject", InputFilePath: filePath, Index: index, Line: line}
+		intObject := utils.HuskyParseObject{Type: "HuskyInt", InputFilePath: filePath, Index: index, Line: line}
 		utils.HuskyParseStart(stringObject)
 		utils.HuskyParseStart(projectObject)
+		utils.HuskyParseStart(intObject)
 	}
 
 }
 
 func main() {
 	huskyOpen()
+	utils.DevforLoop()
 }

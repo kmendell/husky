@@ -3,5 +3,3 @@ project main
 string test = "this is a test string"
 
 int number = 10
-
-print(number)

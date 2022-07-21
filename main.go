@@ -38,5 +38,4 @@ func huskyOpen() {
 
 func main() {
 	huskyOpen()
-	utils.DevforLoop()
 }

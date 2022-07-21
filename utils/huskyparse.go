@@ -15,13 +15,18 @@ type HuskyParseObject struct {
 }
 
 func HuskyParseStart(object HuskyParseObject) {
-	if strings.Contains(object.Type, "HuskyString") {
+
+	switch object.Type {
+	case types.GetType().HuskyString:
 		huskyParseStringVaribles(object.Line, object.Index)
-	} else if strings.Contains(object.Type, "HuskyProject") {
+	case types.GetType().HuskyProject:
 		huskyParseProject(object.Line, object.Index, object.InputFilePath)
-	} else if strings.Contains(object.Type, "HuskyInt") {
+	case types.GetType().HuskyInt:
 		huskyParseIntVaribles(object.Line, object.Index)
+	default:
+		break
 	}
+
 }
 
 func huskyParseStringVaribles(line string, index int) {

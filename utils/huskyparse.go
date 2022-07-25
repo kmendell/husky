@@ -72,6 +72,5 @@ func huskyParseFuncPrint(line string, index int) {
 		part1 := strings.Split(line, "(")
 		part2 := strings.Split(part1[1], ")")
 		functions.PrintLogic(part2[0])
-		// functions.HuskyPrintRun("test", "test")
 	}
 }

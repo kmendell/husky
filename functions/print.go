@@ -8,11 +8,15 @@ func PrintLogic(varname string) {
 		if x.Name == varname {
 			HuskyPrintLine(x.Name, x.Value)
 		} else {
-			for _, num := range types.CompiledHuskyProject.HuskyInts {
-				if num.Name == varname {
-					println(num.Value)
-				}
-			}
+			println("[HusktCompiler] - Not a Defined String")
+		}
+	}
+
+	for _, x := range types.CompiledHuskyProject.HuskyInts {
+		if x.Name == varname {
+			println(x.Name, x.Value)
+		} else {
+			println("[HusktCompiler] - Not a Defined Number")
 		}
 	}
 }

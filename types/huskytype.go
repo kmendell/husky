@@ -1,5 +1,15 @@
 package types
 
+type HuskyInt struct {
+	Name  string
+	Value int
+}
+
+type HuskyString struct {
+	Name  string
+	Value string
+}
+
 type HuskyType struct {
 	HuskyString    string
 	HuskyInt       string

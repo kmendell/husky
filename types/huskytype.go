@@ -41,3 +41,12 @@ func GetType() HuskyType {
 
 	return htype
 }
+
+func NewHuskyProject(dname string, dvar []HuskyString, dint []HuskyInt) HuskyProject {
+
+	project := HuskyProject{Name: dname, Varibles: dvar, HuskyInts: dint}
+
+	return project
+}
+
+var CompiledHuskyProject HuskyProject

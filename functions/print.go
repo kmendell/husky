@@ -7,9 +7,8 @@ func PrintLogic(varname string) {
 	for _, x := range types.CompiledHuskyProject.Varibles {
 		if x.Name == varname {
 			HuskyPrintLine(x.Name, x.Value)
-			break
 		} else {
-			println("Variable Not Found")
+			//TODO :- Just print was is inside quites in print func
 		}
 	}
 }

@@ -39,6 +39,14 @@ func huskyParseStringVaribles(line string, index int) {
 		val1 := strings.Split(sname1[1], "\"")
 		types.CompiledHuskyProject.Varibles = append(types.CompiledHuskyProject.Varibles, types.HuskyString{Name: sname2[1], Value: val1[1]})
 	}
+
+	if strings.Contains(line, "NewString") {
+		// println("[HuskyCompiler] - Found v2 String Definition") Make this into a LOG Action
+		strnamepart1 := strings.Split(line, "(")
+		strnamepart2 := strings.Split(strnamepart1[1], ",")
+		strval1 := strings.Split(line, "\"")
+		types.CompiledHuskyProject.Varibles = append(types.CompiledHuskyProject.Varibles, types.HuskyString{Name: strnamepart2[0], Value: strval1[1]})
+	}
 }
 
 func huskyParseIntVaribles(line string, index int) {

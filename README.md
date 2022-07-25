@@ -15,4 +15,29 @@
   ```
 <div>
 
+Example husky File
+
+```go
+
+project main
+
+// comment
+
+// comment 2
+
+string.new() string2 = "hello world"
+print(string2)
+
+NewString(stringname, "this is my new string")
+print(stringname)
+
+NewNumber(mynumber, 10)
+print(mynumber)
+
+// comment 3 
+
+int.new() number = 10
+
+```
+
 

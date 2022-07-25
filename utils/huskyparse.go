@@ -19,17 +19,19 @@ type HuskyParseObject struct {
 
 func HuskyParseStart(object HuskyParseObject) {
 
-	switch object.Type {
-	case types.GetType().HuskyString:
-		huskyParseStringVaribles(object.Line, object.Index)
-	case types.GetType().HuskyProject:
-		huskyParseProject(object.Line, object.Index, object.InputFilePath)
-	case types.GetType().HuskyInt:
-		huskyParseIntVaribles(object.Line, object.Index)
-	case types.GetType().HuskyFuncPrint:
-		huskyParseFuncPrint(object.Line, object.Index)
-	default:
-		break
+	if !strings.HasPrefix(object.Line, "//") {
+		switch object.Type {
+		case types.GetType().HuskyString:
+			huskyParseStringVaribles(object.Line, object.Index)
+		case types.GetType().HuskyProject:
+			huskyParseProject(object.Line, object.Index, object.InputFilePath)
+		case types.GetType().HuskyInt:
+			huskyParseIntVaribles(object.Line, object.Index)
+		case types.GetType().HuskyFuncPrint:
+			huskyParseFuncPrint(object.Line, object.Index)
+		default:
+			break
+		}
 	}
 
 }
@@ -43,7 +45,6 @@ func huskyParseStringVaribles(line string, index int) {
 	}
 
 	if strings.Contains(line, "NewString") {
-		// println("[HuskyCompiler] - Found v2 String Definition") Make this into a LOG Action
 		strnamepart1 := strings.Split(line, "(")
 		strnamepart2 := strings.Split(strnamepart1[1], ",")
 		strval1 := strings.Split(line, "\"")

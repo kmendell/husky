@@ -4,4 +4,4 @@ string.new() test = "this is a test string"
 
 int.new() number = 10
 
-print ()
+print(test)

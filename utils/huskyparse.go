@@ -69,6 +69,9 @@ func huskyParseProject(line string, index int, filePath string) {
 
 func huskyParseFuncPrint(line string, index int) {
 	if strings.Contains(line, "print") {
-		functions.HuskyPrintRun("test", "test") // Todo := Logic to get what is inside of the print () func, and to search for it in varible
+		part1 := strings.Split(line, "(")
+		part2 := strings.Split(part1[1], ")")
+		functions.PrintLogic(part2[0])
+		// functions.HuskyPrintRun("test", "test")
 	}
 }

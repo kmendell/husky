@@ -6,8 +6,8 @@ import (
 
 	"ofkm.us/husky/functions"
 	"ofkm.us/husky/types"
-	"ofkm.us/husky/types/huskynumber"
-	"ofkm.us/husky/types/huskystrings"
+	"ofkm.us/husky/types/HuskyNumber"
+	"ofkm.us/husky/types/HuskyStrings"
 )
 
 type HuskyParseObject struct {
@@ -47,7 +47,7 @@ func huskyParseStringVaribles(line string, index int) {
 		strnamepart1 := strings.Split(line, "(")
 		strnamepart2 := strings.Split(strnamepart1[1], ",")
 		strval1 := strings.Split(line, "\"")
-		huskystrings.NewString(strnamepart2[0], strval1[1])
+		HuskyStrings.NewString(strnamepart2[0], strval1[1])
 	}
 }
 
@@ -72,7 +72,7 @@ func huskyParseIntVaribles(line string, index int) {
 		if err != nil {
 			panic(err)
 		}
-		huskynumber.NewNumber(name2[0], convint)
+		HuskyNumber.NewNumber(name2[0], convint)
 	}
 }
 

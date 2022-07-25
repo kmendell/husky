@@ -1,4 +1,4 @@
-package huskystrings
+package HuskyStrings
 
 import "ofkm.us/husky/types"
 

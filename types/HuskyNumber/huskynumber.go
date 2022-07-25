@@ -1,4 +1,4 @@
-package huskynumber
+package HuskyNumber
 
 import "ofkm.us/husky/types"
 

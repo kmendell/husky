@@ -8,7 +8,7 @@ func PrintLogic(varname string) {
 		if x.Name == varname {
 			HuskyPrintLine(x.Name, x.Value)
 		} else {
-			println("[HusktCompiler] - Not a Defined String")
+			println("")
 		}
 	}
 
@@ -16,7 +16,7 @@ func PrintLogic(varname string) {
 		if x.Name == varname {
 			println(x.Name, x.Value)
 		} else {
-			println("[HusktCompiler] - Not a Defined Number")
+			println("")
 		}
 	}
 }

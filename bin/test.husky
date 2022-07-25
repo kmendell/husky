@@ -1,10 +1,12 @@
 project main
 
 string.new() string2 = "hello world"
+print(string2)
 
 NewString(stringname, "this is my new string")
+print(stringname)
+
+NewNumber(mynumber, 10)
+print(mynumber)
 
 int.new() number = 10
-
-print(stringname)
-print(string2)

@@ -8,7 +8,11 @@ func PrintLogic(varname string) {
 		if x.Name == varname {
 			HuskyPrintLine(x.Name, x.Value)
 		} else {
-			//TODO :- Just print was is inside quites in print func
+			for _, num := range types.CompiledHuskyProject.HuskyInts {
+				if num.Name == varname {
+					println(num.Value)
+				}
+			}
 		}
 	}
 }

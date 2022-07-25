@@ -6,6 +6,8 @@ import (
 
 	"ofkm.us/husky/functions"
 	"ofkm.us/husky/types"
+	"ofkm.us/husky/types/huskynumber"
+	"ofkm.us/husky/types/huskystrings"
 )
 
 type HuskyParseObject struct {
@@ -45,7 +47,7 @@ func huskyParseStringVaribles(line string, index int) {
 		strnamepart1 := strings.Split(line, "(")
 		strnamepart2 := strings.Split(strnamepart1[1], ",")
 		strval1 := strings.Split(line, "\"")
-		types.CompiledHuskyProject.Varibles = append(types.CompiledHuskyProject.Varibles, types.HuskyString{Name: strnamepart2[0], Value: strval1[1]})
+		huskystrings.NewString(strnamepart2[0], strval1[1])
 	}
 }
 
@@ -59,6 +61,18 @@ func huskyParseIntVaribles(line string, index int) {
 			panic(err)
 		}
 		types.CompiledHuskyProject.HuskyInts = append(types.CompiledHuskyProject.HuskyInts, types.HuskyInt{Name: sname2[1], Value: dint})
+	}
+
+	if strings.Contains(line, "NewNumber") {
+		name1 := strings.Split(line, "(")
+		name2 := strings.Split(name1[1], ",")
+		val1 := strings.Split(line, " ")
+		val2 := strings.Split(val1[1], ")")
+		convint, err := strconv.Atoi(val2[0])
+		if err != nil {
+			panic(err)
+		}
+		huskynumber.NewNumber(name2[0], convint)
 	}
 }
 

@@ -3,22 +3,17 @@ project main
 // Comments Can only be used on seperate lines like this one
 
 // This is a example on the original Syntax to define a new string
-
 string.new() string2 = "hello world"
 print(string2)
 
-
 // This is a example on the new Syntax to define a new string
-
 NewString(stringname, "this is my new string")
 print(stringname)
 
-// This is a example on the New Syntax to define a new numer
-
-NewNumber(mynumber, 10)
+// This is a example on the New Syntax to define a new number
+NewNumber(mynumber, 1)
 print(mynumber)
 
 // This is a example on the original Syntax to define a new number
-
-NewNumber(mynumber2, 11)
+int.new() mynumber2 = 2
 print(mynumber2)

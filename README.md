@@ -14,10 +14,8 @@ project main
 // Comments Can only be used on seperate lines like this one
 
 // This is a example on the original Syntax to define a new string
-
 string.new() string2 = "hello world"
 print(string2)
-
 
 // This is a example on the new Syntax to define a new string
 NewString(stringname, "this is my new string")

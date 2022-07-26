@@ -10,11 +10,6 @@ type HuskyString struct {
 	Value string
 }
 
-type HuskyError struct {
-	ErrorCode   int
-	StringValue string
-}
-
 type HuskyProject struct {
 	Name      string
 	Varibles  []HuskyString

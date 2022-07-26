@@ -24,8 +24,30 @@ func HuskyParseStart(object HuskyParseObject) {
 		huskyParseProject(object.Line, object.Index, object.InputFilePath)
 		huskyParseIntVaribles(object.Line, object.Index)
 		huskyParseFuncPrint(object.Line, object.Index)
+		huskyParseCustomFunctions(object.Line, object.Index)
 	}
 
+}
+
+func GetStringInBetween(str string, start string, end string) (result string) {
+	s := strings.Index(str, start)
+	if s == -1 {
+		return
+	}
+	s += len(start)
+	e := strings.Index(str[s:], end)
+	if e == -1 {
+		return
+	}
+	e += s + e - 1
+	return str[s:e]
+}
+
+func huskyParseCustomFunctions(line string, index int) {
+	if strings.HasPrefix(line, "func") {
+		result := GetStringInBetween(line, "{", "}")
+		println(result)
+	}
 }
 
 func huskyParseStringVaribles(line string, index int) {

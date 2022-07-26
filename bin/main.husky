@@ -17,3 +17,7 @@ print(mynumber)
 // This is updating the previous number we defined to a new value
 UpdateNumber(mynumber, 100)
 print(mynumber)
+
+func myfunction() {
+    inside the function
+}

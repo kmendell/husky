@@ -28,12 +28,6 @@ func HuskyParseStart(object HuskyParseObject) {
 }
 
 func huskyParseStringVaribles(line string, index int) {
-	if strings.Contains(line, "string.new()") {
-		sname1 := strings.Split(line, "=")
-		sname2 := strings.Split(sname1[0], " ")
-		val1 := strings.Split(sname1[1], "\"")
-		types.CompiledHuskyProject.Varibles = append(types.CompiledHuskyProject.Varibles, types.HuskyString{Name: sname2[1], Value: val1[1]})
-	}
 
 	if strings.Contains(line, "NewString") {
 		strnamepart1 := strings.Split(line, "(")
@@ -44,16 +38,6 @@ func huskyParseStringVaribles(line string, index int) {
 }
 
 func huskyParseIntVaribles(line string, index int) {
-	if strings.Contains(line, "int.new()") {
-		sname1 := strings.Split(line, "=")
-		sname2 := strings.Split(sname1[0], " ")
-		val1 := strings.Split(sname1[1], " ")
-		dint, err := strconv.Atoi(val1[1])
-		if err != nil {
-			panic(err)
-		}
-		types.CompiledHuskyProject.HuskyInts = append(types.CompiledHuskyProject.HuskyInts, types.HuskyInt{Name: sname2[1], Value: dint})
-	}
 
 	if strings.Contains(line, "NewNumber") {
 		name1 := strings.Split(line, "(")

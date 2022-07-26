@@ -7,6 +7,7 @@ import (
 	"ofkm.us/husky/HuskyFunctions"
 	"ofkm.us/husky/HuskyType"
 	"ofkm.us/husky/HuskyType/HuskyNumber"
+	"ofkm.us/husky/HuskyType/HuskyProject"
 	"ofkm.us/husky/HuskyType/HuskyStrings"
 )
 
@@ -35,16 +36,16 @@ func huskyParseStringVaribles(line string, index int) {
 		strval1 := strings.Split(line, "\"")
 		HuskyStrings.NewString(strnamepart2[0], strval1[1])
 	} else if strings.Contains(line, "UpdateString") {
-		for _, x := range HuskyType.CompiledHuskyProject.Varibles {
+		for _, x := range HuskyProject.CompiledHuskyProject.Varibles {
 
 			strname := strings.Split(line, "(")
 			strname2 := strings.Split(strname[1], ",")
 			updatestr := strings.Split(line, "\"")
 
-			for j := 0; j < len(HuskyType.CompiledHuskyProject.Varibles); j++ {
+			for j := 0; j < len(HuskyProject.CompiledHuskyProject.Varibles); j++ {
 
 				if x.Name == strname2[0] {
-					HuskyType.CompiledHuskyProject.Varibles[j].Value = updatestr[1]
+					HuskyProject.CompiledHuskyProject.Varibles[j].Value = updatestr[1]
 				}
 
 			}
@@ -67,7 +68,7 @@ func huskyParseIntVaribles(line string, index int) {
 		}
 		HuskyNumber.NewNumber(name2[0], convint)
 	} else if strings.Contains(line, "UpdateNumber") {
-		for _, x := range HuskyType.CompiledHuskyProject.HuskyInts {
+		for _, x := range HuskyProject.CompiledHuskyProject.HuskyInts {
 
 			name1 := strings.Split(line, "(")
 			name2 := strings.Split(name1[1], ",")
@@ -79,10 +80,10 @@ func huskyParseIntVaribles(line string, index int) {
 				panic(err)
 			}
 
-			for j := 0; j < len(HuskyType.CompiledHuskyProject.HuskyInts); j++ {
+			for j := 0; j < len(HuskyProject.CompiledHuskyProject.HuskyInts); j++ {
 
 				if x.Name == name2[0] {
-					HuskyType.CompiledHuskyProject.HuskyInts[j].Value = convint
+					HuskyProject.CompiledHuskyProject.HuskyInts[j].Value = convint
 				}
 
 			}
@@ -99,7 +100,7 @@ func huskyParseProject(line string, index int, filePath string) {
 			println("Error in", filePath, "on line", index+1, "\n   Expected Project 'main' found", projName[1])
 			// TODO := Create and Throw a new HuskyError
 		} else {
-			HuskyType.CompiledHuskyProject = HuskyType.NewHuskyProject(projName[1], []HuskyType.HuskyString{}, []HuskyType.HuskyInt{})
+			HuskyProject.CompiledHuskyProject = HuskyProject.NewHuskyProject(projName[1], []HuskyType.HuskyString{}, []HuskyType.HuskyInt{})
 		}
 
 	}

@@ -2,6 +2,8 @@ package HuskyStrings
 
 import "ofkm.us/husky/HuskyType"
 
+import "ofkm.us/husky/HuskyType/HuskyProject"
+
 func NewString(name string, value string) {
-	HuskyType.CompiledHuskyProject.Varibles = append(HuskyType.CompiledHuskyProject.Varibles, HuskyType.HuskyString{Name: name, Value: value})
+	HuskyProject.CompiledHuskyProject.Varibles = append(HuskyProject.CompiledHuskyProject.Varibles, HuskyType.HuskyString{Name: name, Value: value})
 }

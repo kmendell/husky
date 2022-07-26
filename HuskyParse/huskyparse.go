@@ -1,4 +1,4 @@
-package utils
+package HuskyParse
 
 import (
 	"strconv"
@@ -11,7 +11,6 @@ import (
 )
 
 type HuskyParseObject struct {
-	Type          string
 	InputFilePath string
 	Index         int
 	Line          string
@@ -20,18 +19,10 @@ type HuskyParseObject struct {
 func HuskyParseStart(object HuskyParseObject) {
 
 	if !strings.HasPrefix(object.Line, "//") {
-		switch object.Type {
-		case types.GetType().HuskyString:
-			huskyParseStringVaribles(object.Line, object.Index)
-		case types.GetType().HuskyProject:
-			huskyParseProject(object.Line, object.Index, object.InputFilePath)
-		case types.GetType().HuskyInt:
-			huskyParseIntVaribles(object.Line, object.Index)
-		case types.GetType().HuskyFuncPrint:
-			huskyParseFuncPrint(object.Line, object.Index)
-		default:
-			break
-		}
+		huskyParseStringVaribles(object.Line, object.Index)
+		huskyParseProject(object.Line, object.Index, object.InputFilePath)
+		huskyParseIntVaribles(object.Line, object.Index)
+		huskyParseFuncPrint(object.Line, object.Index)
 	}
 
 }

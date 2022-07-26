@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"os"
 
-	"ofkm.us/husky/utils"
+	"ofkm.us/husky/HuskyParse"
 )
 
-func huskyOpen() {
+func huskyOpenFile() {
 	filePath := os.Args[1]
 	readFile, err := os.Open(filePath)
 
@@ -26,18 +26,11 @@ func huskyOpen() {
 	readFile.Close()
 
 	for index, line := range fileLines {
-		stringObject := utils.HuskyParseObject{Type: "HuskyString", InputFilePath: filePath, Index: index, Line: line}
-		projectObject := utils.HuskyParseObject{Type: "HuskyProject", InputFilePath: filePath, Index: index, Line: line}
-		intObject := utils.HuskyParseObject{Type: "HuskyInt", InputFilePath: filePath, Index: index, Line: line}
-		funcPrintObject := utils.HuskyParseObject{Type: "HuskyFuncPrint", InputFilePath: filePath, Index: index, Line: line}
-		utils.HuskyParseStart(stringObject)
-		utils.HuskyParseStart(projectObject)
-		utils.HuskyParseStart(intObject)
-		utils.HuskyParseStart(funcPrintObject)
+		HuskyParse.HuskyParseStart(HuskyParse.HuskyParseObject{InputFilePath: filePath, Index: index, Line: line})
 	}
 
 }
 
 func main() {
-	huskyOpen()
+	huskyOpenFile()
 }

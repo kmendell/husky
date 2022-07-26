@@ -6,6 +6,10 @@ project main
 NewString(stringname, "this is my new string")
 print(stringname)
 
+// This is updating the previous string we defined to a new value
+UpdateString(stringname, "this is the updated string")
+print(stringname)
+
 // This is a example of defining a new number
 NewNumber(mynumber, 1)
 print(mynumber)

@@ -45,7 +45,7 @@ func huskyParseStringVaribles(line string, index int) {
 			for j := 0; j < len(HuskyProject.CompiledHuskyProject.HuskyStrings); j++ {
 
 				if x.Name == strname2[0] {
-					HuskyProject.CompiledHuskyProject.HuskyStrings[j].Value = updatestr[1]
+					HuskyStrings.UpdateStringValue(j, updatestr[1])
 				}
 
 			}
@@ -83,7 +83,7 @@ func huskyParseIntVaribles(line string, index int) {
 			for j := 0; j < len(HuskyProject.CompiledHuskyProject.HuskyInts); j++ {
 
 				if x.Name == name2[0] {
-					HuskyProject.CompiledHuskyProject.HuskyInts[j].Value = convint
+					HuskyNumber.UpdateNumberValue(j, convint)
 				}
 
 			}

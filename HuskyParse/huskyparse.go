@@ -36,16 +36,16 @@ func huskyParseStringVaribles(line string, index int) {
 		strval1 := strings.Split(line, "\"")
 		HuskyStrings.NewString(strnamepart2[0], strval1[1])
 	} else if strings.Contains(line, "UpdateString") {
-		for _, x := range HuskyProject.CompiledHuskyProject.Varibles {
+		for _, x := range HuskyProject.CompiledHuskyProject.HuskyStrings {
 
 			strname := strings.Split(line, "(")
 			strname2 := strings.Split(strname[1], ",")
 			updatestr := strings.Split(line, "\"")
 
-			for j := 0; j < len(HuskyProject.CompiledHuskyProject.Varibles); j++ {
+			for j := 0; j < len(HuskyProject.CompiledHuskyProject.HuskyStrings); j++ {
 
 				if x.Name == strname2[0] {
-					HuskyProject.CompiledHuskyProject.Varibles[j].Value = updatestr[1]
+					HuskyProject.CompiledHuskyProject.HuskyStrings[j].Value = updatestr[1]
 				}
 
 			}

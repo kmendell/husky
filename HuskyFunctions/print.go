@@ -4,7 +4,7 @@ import "ofkm.us/husky/HuskyType/HuskyProject"
 
 func PrintLogic(varname string) {
 
-	for _, x := range HuskyProject.CompiledHuskyProject.Varibles {
+	for _, x := range HuskyProject.CompiledHuskyProject.HuskyStrings {
 		if x.Name == varname {
 			println(x.Value)
 		}

@@ -7,7 +7,7 @@ run:
 
 git:
 	git add . -f
-	git commit -m "-Used make git- to push these changes"
+	git commit -m "husky v1.0b [automated commit]"
 	git push
 
 clean:

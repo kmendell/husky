@@ -4,10 +4,10 @@ import (
 	"strconv"
 	"strings"
 
-	"ofkm.us/husky/functions"
-	"ofkm.us/husky/types"
-	"ofkm.us/husky/types/HuskyNumber"
-	"ofkm.us/husky/types/HuskyStrings"
+	"ofkm.us/husky/HuskyFunctions"
+	"ofkm.us/husky/HuskyType"
+	"ofkm.us/husky/HuskyType/HuskyNumber"
+	"ofkm.us/husky/HuskyType/HuskyStrings"
 )
 
 type HuskyParseObject struct {
@@ -59,7 +59,7 @@ func huskyParseProject(line string, index int, filePath string) {
 			println("Error in", filePath, "on line", index+1, "\n   Expected Project 'main' found", projName[1])
 			// TODO := Create and Throw a new HuskyError
 		} else {
-			types.CompiledHuskyProject = types.NewHuskyProject(projName[1], []types.HuskyString{}, []types.HuskyInt{})
+			HuskyType.CompiledHuskyProject = HuskyType.NewHuskyProject(projName[1], []HuskyType.HuskyString{}, []HuskyType.HuskyInt{})
 		}
 
 	}
@@ -69,6 +69,6 @@ func huskyParseFuncPrint(line string, index int) {
 	if strings.Contains(line, "print") {
 		part1 := strings.Split(line, "(")
 		part2 := strings.Split(part1[1], ")")
-		functions.PrintLogic(part2[0])
+		HuskyFunctions.PrintLogic(part2[0])
 	}
 }

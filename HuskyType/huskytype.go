@@ -1,4 +1,4 @@
-package types
+package HuskyType
 
 type HuskyInt struct {
 	Name  string

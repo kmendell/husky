@@ -14,3 +14,6 @@ print(stringname)
 NewNumber(mynumber, 1)
 print(mynumber)
 
+// This is updating the previous number we defined to a new value
+UpdateNumber(mynumber, 100)
+print(mynumber)

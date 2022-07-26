@@ -66,6 +66,29 @@ func huskyParseIntVaribles(line string, index int) {
 			panic(err)
 		}
 		HuskyNumber.NewNumber(name2[0], convint)
+	} else if strings.Contains(line, "UpdateNumber") {
+		for _, x := range HuskyType.CompiledHuskyProject.HuskyInts {
+
+			name1 := strings.Split(line, "(")
+			name2 := strings.Split(name1[1], ",")
+			val1 := strings.Split(line, " ")
+			val2 := strings.Split(val1[1], ")")
+			convint, err := strconv.Atoi(val2[0])
+
+			if err != nil {
+				panic(err)
+			}
+
+			for j := 0; j < len(HuskyType.CompiledHuskyProject.HuskyInts); j++ {
+
+				if x.Name == name2[0] {
+					HuskyType.CompiledHuskyProject.HuskyInts[j].Value = convint
+				}
+
+			}
+
+		}
+
 	}
 }
 

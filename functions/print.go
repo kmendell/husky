@@ -6,7 +6,7 @@ func PrintLogic(varname string) {
 
 	for _, x := range types.CompiledHuskyProject.Varibles {
 		if x.Name == varname {
-			HuskyPrintLine(x.Name, x.Value)
+			println(x.Value)
 		}
 	}
 
@@ -15,8 +15,4 @@ func PrintLogic(varname string) {
 			println(x.Value)
 		}
 	}
-}
-
-func HuskyPrintLine(varname string, value string) {
-	println(value)
 }

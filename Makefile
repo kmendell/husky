@@ -2,8 +2,8 @@ build:
 	go build -o bin/husky
 
 run:
-	go build -o bin/husky
-	bin/husky bin/main.husky
+	@go build -o bin/husky
+	@bin/husky bin/main.husky
 
 git:
 	git add . -f

@@ -30,28 +30,17 @@ func HuskyParseStart(object HuskyParseObject) {
 
 }
 
-func GetStringInBetween(str string, start string, end string) (result string) {
-	s := strings.Index(str, start)
-	if s == -1 {
-		return
-	}
-	s += len(start)
-	e := strings.Index(str[s:], end)
-	if e == -1 {
-		return
-	}
-	e += s + e - 1
-	return str[s:e]
-}
-
 func huskyParseCustomFunctions(line string, index int, array []string) {
 
 	if strings.HasPrefix(line, "func") {
-		println(line)
+		funcname := strings.Split(line, "(")
+		funcname = strings.Split(funcname[0], "func ")
+		// println(funcname[1])
 	}
 
 	if strings.HasSuffix(line, ";") {
-		println(line)
+		// linetemp := strings.TrimSpace(line)
+		// println(linetemp)
 	}
 }
 

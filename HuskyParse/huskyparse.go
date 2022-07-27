@@ -50,6 +50,8 @@ func huskyParseCustomFunctions(line string, index int, array []string) {
 
 		for _, x := range array {
 			println(x)
+			temp := strings.Split(x, "{")
+			println(temp[1])
 			if strings.Contains(x, "}") {
 				println("end")
 			}

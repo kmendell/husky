@@ -1,6 +1,8 @@
 package HuskyFunctions
 
-import "ofkm.us/husky/HuskyType/HuskyProject"
+import (
+	"ofkm.us/husky/HuskyType/HuskyProject"
+)
 
 func Print(varname string) {
 

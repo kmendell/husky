@@ -18,7 +18,7 @@ print(mynumber)
 UpdateNumber(mynumber, 100)
 print(mynumber)
 
-// Functions are not fully implemeted, but they can be defined like this so far but nothing gets ran
+// Functions are not fully implemeted, but they can be defined like this but nothing gets ran
 func myfunction() {
     inside the function;
     inside the function;

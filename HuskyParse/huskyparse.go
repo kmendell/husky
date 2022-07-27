@@ -73,9 +73,12 @@ func HuskyParseFile(object HuskyParseObject) {
 				HuskyProject.CompiledHuskyProject = HuskyProject.NewHuskyProject(projName[1], []HuskyType.HuskyString{}, []HuskyType.HuskyInt{})
 			}
 
+		} else if strings.Contains(line, "print") {
+			part1 := strings.Split(line, "(")
+			part2 := strings.Split(part1[1], ")")
+			HuskyFunctions.PrintLogic(part2[0])
 		}
 
-		huskyParseFuncPrint(object.Line, object.Index)
 		// huskyParseCustomFunctions(object.Line, object.Index, object.Array)
 	}
 }
@@ -91,13 +94,5 @@ func huskyParseCustomFunctions(line string, index int, array []string) {
 	if strings.HasSuffix(line, ";") {
 		linetemp := strings.TrimSpace(line)
 		println(linetemp)
-	}
-}
-
-func huskyParseFuncPrint(line string, index int) {
-	if strings.Contains(line, "print") {
-		part1 := strings.Split(line, "(")
-		part2 := strings.Split(part1[1], ")")
-		HuskyFunctions.PrintLogic(part2[0])
 	}
 }

@@ -15,6 +15,12 @@ type HuskyBool struct {
 	Value bool
 }
 
+type HuskyFloat struct {
+}
+
+type HuskyArray struct {
+}
+
 type HuskyParseObject struct {
 	InputFilePath string
 	Index         int

@@ -81,6 +81,7 @@ func HuskyParseFile(object HuskyParseObject) {
 			projName := strings.Split(line, " ")
 			if !strings.Contains(projName[1], "main") {
 				println("Error in", object.InputFilePath, "on line", object.Index+1, "\n   Expected Project 'main' found", projName[1])
+				panic(true)
 				// TODO := Create and Throw a new HuskyError
 			} else {
 				HuskyProject.CompiledHuskyProject = HuskyProject.NewHuskyProject(projName[1], []HuskyType.HuskyString{}, []HuskyType.HuskyInt{}, []HuskyType.HuskyBool{})
@@ -92,6 +93,5 @@ func HuskyParseFile(object HuskyParseObject) {
 			HuskyFunctions.PrintLogic(part2[0])
 		}
 
-		// huskyParseCustomFunctions(object.Line, object.Index, object.Array)
 	}
 }

@@ -20,11 +20,10 @@ print(stringname)
 UpdateString(stringname, "this is the updated string")
 print(stringname)
 
-// This is a example of defining a new number
+// Same can be done for other types as well
 NewNumber(mynumber, 1)
 print(mynumber)
 
-// This is updating the previous number we defined to a new value
 UpdateNumber(mynumber, 100)
 print(mynumber)
 

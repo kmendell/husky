@@ -49,10 +49,13 @@ func huskyParseCustomFunctions(line string, index int, array []string) {
 	if strings.HasPrefix(line, "func") {
 
 		for _, x := range array {
-			println(x)
-			temp := strings.Split(x, "{")
-			println(temp[1])
+			if strings.HasSuffix(x, "{") {
+				// this gets the start of a function
+				println("start")
+			}
+			// still need to add logic to get whats inside
 			if strings.Contains(x, "}") {
+				// this gets the end of the fucntion
 				println("end")
 			}
 		}

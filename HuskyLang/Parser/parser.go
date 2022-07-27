@@ -5,13 +5,13 @@ import (
 	"strings"
 
 	"ofkm.us/husky/HuskyType/HuskyBool"
-	"ofkm.us/husky/HuskyType/HuskyNumber"
-	"ofkm.us/husky/HuskyType/HuskyProject"
-	"ofkm.us/husky/HuskyType/HuskyStrings"
 
 	"ofkm.us/husky/HuskyLang/Functions"
 
 	"ofkm.us/husky/HuskyLang/Types"
+	"ofkm.us/husky/HuskyLang/Types/HuskyNumber"
+	"ofkm.us/husky/HuskyLang/Types/HuskyProject"
+	"ofkm.us/husky/HuskyLang/Types/HuskyString"
 )
 
 func HuskyParseFile(object Types.HuskyParseObject) {
@@ -22,7 +22,7 @@ func HuskyParseFile(object Types.HuskyParseObject) {
 			strnamepart1 := strings.Split(line, "(")
 			strnamepart2 := strings.Split(strnamepart1[1], ",")
 			strval1 := strings.Split(line, "\"")
-			HuskyStrings.NewString(strnamepart2[0], strval1[1])
+			HuskyString.NewString(strnamepart2[0], strval1[1])
 		} else if strings.Contains(line, "UpdateString") {
 			for _, x := range HuskyProject.CompiledHuskyProject.HuskyStrings {
 				strname := strings.Split(line, "(")
@@ -30,7 +30,7 @@ func HuskyParseFile(object Types.HuskyParseObject) {
 				updatestr := strings.Split(line, "\"")
 				for j := 0; j < len(HuskyProject.CompiledHuskyProject.HuskyStrings); j++ {
 					if x.Name == strname[0] {
-						HuskyStrings.UpdateStringValue(j, updatestr[1])
+						HuskyString.UpdateStringValue(j, updatestr[1])
 					}
 				}
 			}

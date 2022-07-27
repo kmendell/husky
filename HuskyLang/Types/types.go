@@ -7,7 +7,24 @@ type HuskyParseObject struct {
 	Array         []string
 }
 
+type HuskyProject struct {
+	Name         string
+	HuskyStrings []HuskyString
+	HuskyInts    []HuskyInt
+	HuskyBools   []HuskyBool
+}
+
 type HuskyString struct {
 	Name  string
 	Value string
+}
+
+type HuskyInt struct {
+	Name  string
+	Value int
+}
+
+type HuskyBool struct {
+	Name  string
+	Value bool
 }

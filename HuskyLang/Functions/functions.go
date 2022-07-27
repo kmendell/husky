@@ -1,7 +1,7 @@
 package Functions
 
 import (
-	"ofkm.us/husky/HuskyType/HuskyProject"
+	"ofkm.us/husky/HuskyLang/Types/HuskyProject"
 )
 
 func Print(varname string) {

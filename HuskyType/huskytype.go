@@ -14,3 +14,10 @@ type HuskyBool struct {
 	Name  string
 	Value bool
 }
+
+type HuskyParseObject struct {
+	InputFilePath string
+	Index         int
+	Line          string
+	Array         []string
+}

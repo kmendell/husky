@@ -12,14 +12,7 @@ import (
 	"ofkm.us/husky/HuskyType/HuskyStrings"
 )
 
-type HuskyParseObject struct {
-	InputFilePath string
-	Index         int
-	Line          string
-	Array         []string
-}
-
-func HuskyParseFile(object HuskyParseObject) {
+func HuskyParseFile(object HuskyType.HuskyParseObject) {
 	line := object.Line
 
 	if !strings.HasPrefix(object.Line, "//") {

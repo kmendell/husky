@@ -49,11 +49,11 @@ func huskyParseCustomFunctions(line string, index int, array []string) {
 	if strings.HasPrefix(line, "func") {
 
 		for _, x := range array {
+			println(x)
 			if strings.Contains(x, "}") {
 				println("end")
 			}
 		}
-		println(array[index+1]) //this gets what is insdie of the function
 
 	}
 }

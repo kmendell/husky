@@ -15,4 +15,10 @@ func PrintLogic(varname string) {
 			println(x.Value)
 		}
 	}
+
+	for _, x := range HuskyProject.CompiledHuskyProject.HuskyBools {
+		if x.Name == varname {
+			println(x.Value)
+		}
+	}
 }

@@ -18,9 +18,5 @@ print(mynumber)
 UpdateNumber(mynumber, 100)
 print(mynumber)
 
-// Functions are not fully implemeted, but they can be defined like this but nothing gets ran
-func myfunction() {
-    inside the function;
-    inside the function;
-    inside the function;
-}
+NewBool(mybool, true)
+print(mybool)

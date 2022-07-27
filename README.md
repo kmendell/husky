@@ -28,6 +28,9 @@ print(mynumber)
 UpdateNumber(mynumber, 100)
 print(mynumber)
 
+NewBool(mybool, true)
+print(mybool)
+
 ```
 </div>
 

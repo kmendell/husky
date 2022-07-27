@@ -6,6 +6,7 @@ import (
 
 	"ofkm.us/husky/HuskyFunctions"
 	"ofkm.us/husky/HuskyType"
+	"ofkm.us/husky/HuskyType/HuskyBool"
 	"ofkm.us/husky/HuskyType/HuskyNumber"
 	"ofkm.us/husky/HuskyType/HuskyProject"
 	"ofkm.us/husky/HuskyType/HuskyStrings"
@@ -64,13 +65,25 @@ func HuskyParseFile(object HuskyParseObject) {
 					}
 				}
 			}
+		} else if strings.Contains(line, "NewBool") {
+			name1 := strings.Split(line, "(")
+			name2 := strings.Split(name1[1], ",")
+			val1 := strings.Split(line, " ")
+			val2 := strings.Split(val1[1], ")")
+			boolval := false
+			if val2[0] == "true" {
+				boolval = true
+			} else {
+				boolval = false
+			}
+			HuskyBool.NewBool(name2[0], boolval)
 		} else if strings.Contains(line, "project") {
 			projName := strings.Split(line, " ")
 			if !strings.Contains(projName[1], "main") {
 				println("Error in", object.InputFilePath, "on line", object.Index+1, "\n   Expected Project 'main' found", projName[1])
 				// TODO := Create and Throw a new HuskyError
 			} else {
-				HuskyProject.CompiledHuskyProject = HuskyProject.NewHuskyProject(projName[1], []HuskyType.HuskyString{}, []HuskyType.HuskyInt{})
+				HuskyProject.CompiledHuskyProject = HuskyProject.NewHuskyProject(projName[1], []HuskyType.HuskyString{}, []HuskyType.HuskyInt{}, []HuskyType.HuskyBool{})
 			}
 
 		} else if strings.Contains(line, "print") {
@@ -80,19 +93,5 @@ func HuskyParseFile(object HuskyParseObject) {
 		}
 
 		// huskyParseCustomFunctions(object.Line, object.Index, object.Array)
-	}
-}
-
-func huskyParseCustomFunctions(line string, index int, array []string) {
-
-	if strings.HasPrefix(line, "func") {
-		funcname := strings.Split(line, "(")
-		funcname = strings.Split(funcname[0], "func ")
-		println(funcname[1])
-	}
-
-	if strings.HasSuffix(line, ";") {
-		linetemp := strings.TrimSpace(line)
-		println(linetemp)
 	}
 }

@@ -9,3 +9,8 @@ type HuskyString struct {
 	Name  string
 	Value string
 }
+
+type HuskyBool struct {
+	Name  string
+	Value bool
+}

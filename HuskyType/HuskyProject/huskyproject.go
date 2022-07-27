@@ -16,4 +16,10 @@ func NewHuskyProject(dname string, dvar []HuskyType.HuskyString, dint []HuskyTyp
 	return project
 }
 
+func NewEmptyProject(ProjectName string) HuskyProject {
+	project := HuskyProject{Name: ProjectName, HuskyStrings: []HuskyType.HuskyString{}, HuskyInts: []HuskyType.HuskyInt{}, HuskyBools: []HuskyType.HuskyBool{}}
+
+	return project
+}
+
 var CompiledHuskyProject HuskyProject

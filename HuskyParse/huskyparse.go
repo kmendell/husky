@@ -15,6 +15,7 @@ type HuskyParseObject struct {
 	InputFilePath string
 	Index         int
 	Line          string
+	Array         []string
 }
 
 func HuskyParseStart(object HuskyParseObject) {
@@ -24,7 +25,7 @@ func HuskyParseStart(object HuskyParseObject) {
 		huskyParseProject(object.Line, object.Index, object.InputFilePath)
 		huskyParseIntVaribles(object.Line, object.Index)
 		huskyParseFuncPrint(object.Line, object.Index)
-		huskyParseCustomFunctions(object.Line, object.Index)
+		huskyParseCustomFunctions(object.Line, object.Index, object.Array)
 	}
 
 }
@@ -43,10 +44,11 @@ func GetStringInBetween(str string, start string, end string) (result string) {
 	return str[s:e]
 }
 
-func huskyParseCustomFunctions(line string, index int) {
+func huskyParseCustomFunctions(line string, index int, array []string) {
+
 	if strings.HasPrefix(line, "func") {
-		result := GetStringInBetween(line, "{", "}")
-		println(result)
+		println(array[index+1]) //this gets what is insdie of the function
+
 	}
 }
 

@@ -26,7 +26,7 @@ func huskyOpenFile() {
 	readFile.Close()
 
 	for index, line := range fileLines {
-		HuskyParse.HuskyParseStart(HuskyParse.HuskyParseObject{InputFilePath: filePath, Index: index, Line: line})
+		HuskyParse.HuskyParseStart(HuskyParse.HuskyParseObject{InputFilePath: filePath, Index: index, Line: line, Array: fileLines})
 	}
 
 }

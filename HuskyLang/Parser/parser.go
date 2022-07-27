@@ -4,11 +4,10 @@ import (
 	"strconv"
 	"strings"
 
-	"ofkm.us/husky/HuskyType/HuskyBool"
-
 	"ofkm.us/husky/HuskyLang/Functions"
 
 	"ofkm.us/husky/HuskyLang/Types"
+	"ofkm.us/husky/HuskyLang/Types/HuskyBool"
 	"ofkm.us/husky/HuskyLang/Types/HuskyNumber"
 	"ofkm.us/husky/HuskyLang/Types/HuskyProject"
 	"ofkm.us/husky/HuskyLang/Types/HuskyString"

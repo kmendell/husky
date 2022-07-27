@@ -39,7 +39,7 @@ func HuskyParseFile(object Types.HuskyParseObject) {
 		} else if strings.Contains(line, "print") {
 			part1 := strings.Split(line, "(")
 			part2 := strings.Split(part1[1], ")")
-			Functions.Print(part2[0])
+			Functions.Println(part2[0])
 		}
 
 	}

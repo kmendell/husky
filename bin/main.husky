@@ -19,3 +19,5 @@ print(mynumber)
 
 NewBool(mybool, true)
 print(mybool)
+UpdateBool(mybool, false)
+print(mybool)

@@ -70,6 +70,25 @@ func HuskyParseFile(object HuskyType.HuskyParseObject) {
 				boolval = false
 			}
 			HuskyBool.NewBool(name2[0], boolval)
+		} else if strings.Contains(line, "UpdateBool") {
+			name1 := strings.Split(line, "(")
+			name2 := strings.Split(name1[1], ",")
+			val1 := strings.Split(line, " ")
+			val2 := strings.Split(val1[1], ")")
+			boolval := false
+			if val2[0] == "true" {
+				boolval = true
+			} else {
+				boolval = false
+			}
+			for _, x := range HuskyProject.CompiledHuskyProject.HuskyBools {
+				for j := 0; j < len(HuskyProject.CompiledHuskyProject.HuskyBools); j++ {
+					if x.Name == name2[0] {
+						HuskyBool.UpdateBoolValue(j, boolval)
+					}
+				}
+			}
+
 		} else if strings.Contains(line, "project") {
 			projName := strings.Split(line, " ")
 			if !strings.Contains(projName[1], "main") {

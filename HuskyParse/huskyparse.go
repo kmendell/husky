@@ -47,19 +47,11 @@ func GetStringInBetween(str string, start string, end string) (result string) {
 func huskyParseCustomFunctions(line string, index int, array []string) {
 
 	if strings.HasPrefix(line, "func") {
+		println(line)
+	}
 
-		for _, x := range array {
-			if strings.HasSuffix(x, "{") {
-				// this gets the start of a function
-				println("start")
-			}
-			// still need to add logic to get whats inside
-			if strings.Contains(x, "}") {
-				// this gets the end of the fucntion
-				println("end")
-			}
-		}
-
+	if strings.HasSuffix(line, ";") {
+		println(line)
 	}
 }
 

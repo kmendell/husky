@@ -19,5 +19,5 @@ UpdateNumber(mynumber, 100)
 print(mynumber)
 
 func myfunction() {
-    inside the function
+    inside the function;
 }

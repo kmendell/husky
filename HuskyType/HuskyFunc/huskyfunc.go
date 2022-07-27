@@ -1,6 +1,7 @@
 package HuskyFunc
 
 type HuskyFunc struct {
-	Name string
-	Args []string
+	Name    string
+	Args    []string
+	Content string
 }

@@ -20,10 +20,3 @@ type HuskyFloat struct {
 
 type HuskyArray struct {
 }
-
-type HuskyParseObject struct {
-	InputFilePath string
-	Index         int
-	Line          string
-	Array         []string
-}

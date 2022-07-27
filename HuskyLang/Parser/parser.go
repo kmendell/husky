@@ -4,16 +4,17 @@ import (
 	"strconv"
 	"strings"
 
-	"ofkm.us/husky/HuskyType"
 	"ofkm.us/husky/HuskyType/HuskyBool"
 	"ofkm.us/husky/HuskyType/HuskyNumber"
 	"ofkm.us/husky/HuskyType/HuskyProject"
 	"ofkm.us/husky/HuskyType/HuskyStrings"
 
 	"ofkm.us/husky/HuskyLang/Functions"
+
+	"ofkm.us/husky/HuskyLang/Types"
 )
 
-func HuskyParseFile(object HuskyType.HuskyParseObject) {
+func HuskyParseFile(object Types.HuskyParseObject) {
 	line := object.Line
 
 	if !strings.HasPrefix(object.Line, "//") {

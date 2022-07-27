@@ -6,7 +6,7 @@ import (
 	"os"
 
 	"ofkm.us/husky/HuskyLang/Parser"
-	"ofkm.us/husky/HuskyType"
+	"ofkm.us/husky/HuskyLang/Types"
 )
 
 func huskyOpenFile() {
@@ -27,7 +27,7 @@ func huskyOpenFile() {
 	readFile.Close()
 
 	for index, line := range fileLines {
-		Parser.HuskyParseFile(HuskyType.HuskyParseObject{InputFilePath: filePath, Index: index, Line: line, Array: fileLines})
+		Parser.HuskyParseFile(Types.HuskyParseObject{InputFilePath: filePath, Index: index, Line: line, Array: fileLines})
 	}
 
 }

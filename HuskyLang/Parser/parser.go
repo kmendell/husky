@@ -16,7 +16,9 @@ func HuskyParseFile(object Types.HuskyParseObject) {
 	line := object.Line
 
 	if !strings.HasPrefix(object.Line, "//") {
-		if strings.Contains(line, "NewString") {
+		if strings.Contains(line, "project") {
+			HuskyProject.NewEmptyProject(line)
+		} else if strings.Contains(line, "NewString") {
 			HuskyString.NewString(line)
 		} else if strings.Contains(line, "UpdateString") {
 			HuskyString.UpdateStringValue(line)
@@ -28,8 +30,6 @@ func HuskyParseFile(object Types.HuskyParseObject) {
 			HuskyBool.NewBool(line)
 		} else if strings.Contains(line, "UpdateBool") {
 			HuskyBool.UpdateBoolValue(line)
-		} else if strings.Contains(line, "project") {
-			HuskyProject.NewEmptyProject(line)
 		} else if strings.Contains(line, "print") {
 			Functions.PrintParse(line)
 		}

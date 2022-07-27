@@ -47,6 +47,12 @@ func GetStringInBetween(str string, start string, end string) (result string) {
 func huskyParseCustomFunctions(line string, index int, array []string) {
 
 	if strings.HasPrefix(line, "func") {
+
+		for _, x := range array {
+			if strings.Contains(x, "}") {
+				println("end")
+			}
+		}
 		println(array[index+1]) //this gets what is insdie of the function
 
 	}

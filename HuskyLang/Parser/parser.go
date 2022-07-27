@@ -29,17 +29,9 @@ func HuskyParseFile(object Types.HuskyParseObject) {
 		} else if strings.Contains(line, "UpdateBool") {
 			HuskyBool.UpdateBoolValue(line)
 		} else if strings.Contains(line, "project") {
-			projName := strings.Split(line, " ")
-			if !strings.Contains(projName[1], "main") {
-				panic(true)
-			} else {
-				HuskyProject.CompiledHuskyProject = HuskyProject.NewEmptyProject(projName[1])
-			}
-
+			HuskyProject.NewEmptyProject(line)
 		} else if strings.Contains(line, "print") {
-			part1 := strings.Split(line, "(")
-			part2 := strings.Split(part1[1], ")")
-			Functions.Println(part2[0])
+			Functions.PrintParse(line)
 		}
 
 	}

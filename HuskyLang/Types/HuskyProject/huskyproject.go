@@ -2,12 +2,18 @@ package HuskyProject
 
 import (
 	"ofkm.us/husky/HuskyLang/Types"
+	"strings"
 )
 
-func NewEmptyProject(ProjectName string) Types.HuskyProject {
-	project := Types.HuskyProject{Name: ProjectName, HuskyStrings: []Types.HuskyString{}, HuskyInts: []Types.HuskyInt{}, HuskyBools: []Types.HuskyBool{}}
+func NewEmptyProject(Line string) {
 
-	return project
+	projName := strings.Split(Line, " ")
+	if !strings.Contains(projName[1], "main") {
+		panic(true)
+	} else {
+		CompiledHuskyProject = Types.HuskyProject{Name: projName[1], HuskyStrings: []Types.HuskyString{}, HuskyInts: []Types.HuskyInt{}, HuskyBools: []Types.HuskyBool{}}
+	}
+
 }
 
 var CompiledHuskyProject Types.HuskyProject

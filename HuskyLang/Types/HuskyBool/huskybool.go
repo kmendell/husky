@@ -13,7 +13,7 @@ func NewBool(Line string) {
 	val1 := strings.Split(Line, " ")
 	val2 := strings.Split(val1[1], ")")
 	boolval := false
-	if val2[0] == "true" {
+	if strings.ToLower(val2[0]) == "true" || strings.ToLower(val2[0]) == "yes" || strings.ToLower(val2[0]) == "1" {
 		boolval = true
 	} else {
 		boolval = false
@@ -27,7 +27,7 @@ func UpdateBoolValue(Line string) {
 	val1 := strings.Split(Line, " ")
 	val2 := strings.Split(val1[1], ")")
 	boolval := false
-	if val2[0] == "true" {
+	if strings.ToLower(val2[0]) == "true" || strings.ToLower(val2[0]) == "yes" || strings.ToLower(val2[0]) == "1" {
 		boolval = true
 	} else {
 		boolval = false

@@ -17,7 +17,7 @@ func OpenFileFromArg() {
 
 	if len(os.Args) < 2 {
 		FindHuskyFiles()
-	} else if len(os.Args) == 3 {
+	} else if len(os.Args) == 3 && os.Args[1] == "-m" {
 		fmt.Println("Entering Husky Module Mode...")
 		if os.Args[2] == "http" {
 			Modules.HuskyHTTPModule()

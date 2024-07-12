@@ -8,14 +8,20 @@ import (
 	"path/filepath"
 	"strings"
 
+	"ofkm.us/husky/HuskyLang/Modules"
 	"ofkm.us/husky/HuskyLang/Parser"
 	"ofkm.us/husky/HuskyLang/Types"
 )
 
 func OpenFileFromArg() {
 
-	if len(os.Args) != 2 {
+	if len(os.Args) < 2 {
 		FindHuskyFiles()
+	} else if len(os.Args) == 3 {
+		fmt.Println("Entering Husky Module Mode...")
+		if os.Args[2] == "http" {
+			Modules.HuskyHTTPModule()
+		}
 	} else {
 		filePath := os.Args[1]
 		readFile, err := os.Open(filePath)

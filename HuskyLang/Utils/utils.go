@@ -18,30 +18,52 @@ func OpenFileFromArg() {
 	if len(os.Args) < 2 {
 		FindHuskyFiles()
 	} else if len(os.Args) == 3 && os.Args[1] == "-m" {
-		fmt.Println("Entering Husky Module Mode...")
+		EnterHuskyModuleMode()
+	} else {
+		CheckFirstArgument()
+	}
+}
+
+func EnterHuskyModuleMode() {
+	fmt.Println("Entering Husky Module Mode...")
+
+	if len(os.Args) < 3 {
+		fmt.Println("No Module Defined, Please define a module in order to use Husky Module mode.")
+	} else {
 		if os.Args[2] == "http" {
 			Modules.HuskyHTTPModule()
 		}
+	}
+
+}
+
+func RunHuskyFile(huskyFilePath string) {
+	filePath := huskyFilePath
+	readFile, err := os.Open(filePath)
+
+	if err != nil {
+		fmt.Println(err)
+	}
+	fileScanner := bufio.NewScanner(readFile)
+	fileScanner.Split(bufio.ScanLines)
+	var fileLines []string
+
+	for fileScanner.Scan() {
+		fileLines = append(fileLines, fileScanner.Text())
+	}
+
+	readFile.Close()
+
+	for index, line := range fileLines {
+		Parser.HuskyParseFile(Types.HuskyParseObject{InputFilePath: filePath, Index: index, Line: line, Array: fileLines})
+	}
+}
+
+func CheckFirstArgument() {
+	if os.Args[1] == "-m" {
+		EnterHuskyModuleMode()
 	} else {
-		filePath := os.Args[1]
-		readFile, err := os.Open(filePath)
-
-		if err != nil {
-			fmt.Println(err)
-		}
-		fileScanner := bufio.NewScanner(readFile)
-		fileScanner.Split(bufio.ScanLines)
-		var fileLines []string
-
-		for fileScanner.Scan() {
-			fileLines = append(fileLines, fileScanner.Text())
-		}
-
-		readFile.Close()
-
-		for index, line := range fileLines {
-			Parser.HuskyParseFile(Types.HuskyParseObject{InputFilePath: filePath, Index: index, Line: line, Array: fileLines})
-		}
+		RunHuskyFile(os.Args[1])
 	}
 }
 

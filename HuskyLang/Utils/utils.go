@@ -10,23 +10,28 @@ import (
 )
 
 func OpenFileFromArg() {
-	filePath := os.Args[1]
-	readFile, err := os.Open(filePath)
 
-	if err != nil {
-		fmt.Println(err)
-	}
-	fileScanner := bufio.NewScanner(readFile)
-	fileScanner.Split(bufio.ScanLines)
-	var fileLines []string
+	if len(os.Args) != 2 {
+		fmt.Println("No Husky File Given")
+	} else {
+		filePath := os.Args[1]
+		readFile, err := os.Open(filePath)
 
-	for fileScanner.Scan() {
-		fileLines = append(fileLines, fileScanner.Text())
-	}
+		if err != nil {
+			fmt.Println(err)
+		}
+		fileScanner := bufio.NewScanner(readFile)
+		fileScanner.Split(bufio.ScanLines)
+		var fileLines []string
 
-	readFile.Close()
+		for fileScanner.Scan() {
+			fileLines = append(fileLines, fileScanner.Text())
+		}
 
-	for index, line := range fileLines {
-		Parser.HuskyParseFile(Types.HuskyParseObject{InputFilePath: filePath, Index: index, Line: line, Array: fileLines})
+		readFile.Close()
+
+		for index, line := range fileLines {
+			Parser.HuskyParseFile(Types.HuskyParseObject{InputFilePath: filePath, Index: index, Line: line, Array: fileLines})
+		}
 	}
 }
